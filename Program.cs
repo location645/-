@@ -12,15 +12,35 @@ namespace ConsoleApplication3
 
             int [] array = new int [20];
 
-            Console.WriteLine("フィボナッチ数列");
 
-            Console.Write("数値のみ入力し、Enterを押してください \n" + "数値1 ＝　");
-            array[0] = int.Parse(Console.ReadLine());
+            try
+            {
+                Console.WriteLine("フィボナッチ数列");
+
+                Console.Write("数値のみ入力し、Enterを押してください \n" + "数値1 ＝　");
 
 
+                array[0] = int.Parse(Console.ReadLine());
 
-            Console.Write("数値2 ＝　");
-            array[1] = int.Parse(Console.ReadLine()); 
+            }
+
+            catch(System.FormatException e)
+            {
+                Console.WriteLine("Error\n/全角で入力されました\n/半角の数字で入力してください");
+            }
+
+
+            try
+            {
+
+                Console.Write("数値2 ＝　");
+                array[1] = int.Parse(Console.ReadLine());
+            }
+
+            catch(System.FormatException e)
+            {
+                Console.WriteLine("Error\n/全角で入力されました\n/半角の数字で入力してください");
+            }
 
             for(int i=2; i<array.Length; ++i)
             {
@@ -35,6 +55,9 @@ namespace ConsoleApplication3
                 Console.Write(array[i] + ",");
             }
 
+
+           
         }
+
     }
 }
